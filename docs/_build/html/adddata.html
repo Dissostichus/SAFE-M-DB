@@ -1,0 +1,238 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ajouter des enregistrements &mdash; Documentation SAFE-M-DB 1.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=7a28dfa3"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=e6b791cb"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Visualiser et modifier des enregistrements" href="modifydata.html" />
+    <link rel="prev" title="Installation" href="install.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            SAFE-M-DB
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="bones.html">Détails et structure de la base de données SAFEM_DATA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Ajouter des enregistrements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#saisie-des-donnees">Saisie des données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#importation-des-donnees">Importation des données</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modifydata.html">Visualiser et modifier des enregistrements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library.html">Documentation des fonctions</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SAFE-M-DB</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Ajouter des enregistrements</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/adddata.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ajouter-des-enregistrements">
+<span id="add"></span><h1>Ajouter des enregistrements<a class="headerlink" href="#ajouter-des-enregistrements" title="Lien vers cette rubrique"></a></h1>
+<section id="saisie-des-donnees">
+<h2>Saisie des données<a class="headerlink" href="#saisie-des-donnees" title="Lien vers cette rubrique"></a></h2>
+<p>Il est possible de saisir de nouveaux enregistrements dans la base de données. Dans l’interface <code class="docutils literal notranslate"><span class="pre">MENU</span> <span class="pre">PRINCIPAL</span></code> choisissez l’option
+<code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">-</span> <span class="pre">Ajouter</span> <span class="pre">de</span> <span class="pre">nouvelles</span> <span class="pre">données</span></code>, appuyez sur la touche <code class="docutils literal notranslate"><span class="pre">1</span></code> et validez avec la touche <strong>Entrée</strong>.</p>
+<p>Le programme vous demandera alors quel est le type de données que vous souhaitez ajouter. Cela determinera dans quel <strong>TABLE</strong> de la base
+de données les enregistrements vont être sauvegarder. Pour sélectionner l’option désirée saisissez le chiffre correspondant et valider avec la touche
+<strong>Entrée</strong>.</p>
+<p>Le programme va vous afficher un message de création du fichier LibreOffice dans lequel vous allez devoir renseigner vos données. Directement après reception
+de ce message ce fichier LibreOffice Calc s’ouvre:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>You&#39;re connected to dtabase:  (&#39;SAFEM_DATA&#39;,)
+
+===========================================================================
+MENU PRINCIPAL
+===========================================================================
+Que souhaitez-vous faire ?
+1 - Ajouter de nouvelles données
+2 - Ajouter à partir d&#39;un fichier déjà remplit
+3 - Visualiser/Modifier d&#39;anciennes données
+4 - Quitter
+===========================================================================
+?
+
+-&gt; 1
+
+    ===========================================================================
+    MENU CHOIX DES DONNEES
+    ===========================================================================
+    Quelles données voulez-vous ajouter :
+    1 - Localisation de puits/sources/rivières ?
+    2 - Mesures physico-chimiques/piézométriques ?
+    3 - Quitter le menu choix des données et retourner au menu principal
+    ===========================================================================
+
+-&gt; 2
+
+Fichier ODS &#39;template_measurements.ods&#39; créé avec succès.
+Une fois le fichier LibreOffice enregistré, Appuyez sur Entrée
+</pre></div>
+</div>
+<img alt="_images/fig_template_measurements.png" src="_images/fig_template_measurements.png" />
+<p>Ces fichiers LibreOffice <code class="docutils literal notranslate"><span class="pre">template_measurements.ods</span></code> et <code class="docutils literal notranslate"><span class="pre">template_localisation.ods</span></code>, respectivement si vous souhaitez ajouter des données
+de mesures physico-chimique/piezométrique ou de localisation de puits, possède des entêtes de colonnes pré-remplies. Il vous suffit donc simplement
+de saisir les informations dans la colonne correspondante. Si vous ne possédez pas certaines informations non essentielle, aucun problème. Chaque
+ligne remplie correspond à un enregistrement. Une fois toutes les données saisis enregistré le fichier avec <strong>CTRL + S</strong> puis fermez le. Vous
+pouvez maintenant revenir au programme et appuyez sur <strong>Entrée</strong> pour ajouter ces nouvelles données dans la database:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Database</span> <span class="n">mis</span> <span class="n">à</span> <span class="n">jour</span>
+</pre></div>
+</div>
+<p>La base de données SAFEM_DATA est mise à jour et contient désormais vous nouveaux enregistrements dans les TABLES localisation ou measurements suivant le type de données ajouté.
+Vous retombez ensuite sur le menu <code class="docutils literal notranslate"><span class="pre">CHOIX</span> <span class="pre">DES</span> <span class="pre">DONNEES</span></code> que vous pouvez quitter avec l’option <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">-</span> <span class="pre">Quitter</span> <span class="pre">le</span> <span class="pre">menu</span> <span class="pre">choix</span> <span class="pre">des</span> <span class="pre">données</span> <span class="pre">et</span> <span class="pre">retourner</span> <span class="pre">au</span> <span class="pre">menu</span> <span class="pre">principal</span></code>
+si vous n’avez plus aucun enregistrement à sauvegarder.</p>
+<div class="admonition warning">
+<p class="admonition-title">Avertissement</p>
+<p>Attention lors de la saisie de vos données dans le fichier LibreOffice que celle-ci respecte bien le format attendu.
+Pour vérifier si le format correspond toutes les informations sont rappelées avec les <a class="reference internal" href="bones.html#skeleton"><span class="std std-ref">Détails et structure de la base de données SAFEM_DATA</span></a>.</p>
+</div>
+</section>
+<section id="importation-des-donnees">
+<span id="import"></span><h2>Importation des données<a class="headerlink" href="#importation-des-donnees" title="Lien vers cette rubrique"></a></h2>
+<p>Le programme offre aussi la possibilité d’ajouter de nouveaux enregistrements directement à partir d’un fichier de données
+<strong>LibreOffice Calc</strong> déjà rempli auparavant. Dans l’interface <code class="docutils literal notranslate"><span class="pre">MENU</span> <span class="pre">PRINCIPAL</span></code> choisissez l’option
+<code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">-</span> <span class="pre">Ajouter</span> <span class="pre">à</span> <span class="pre">partir</span> <span class="pre">d'un</span> <span class="pre">fichier</span> <span class="pre">déjà</span> <span class="pre">remplit</span></code>, appuyez sur la touche <code class="docutils literal notranslate"><span class="pre">2</span></code> et validez avec la touche <strong>Entrée</strong>.
+Comme pour une saisie direct de données vous devrez ensuite spécifié le type de données que vous souhaitez ajouter.
+Le programme vous affichera une notice quand au format que doit respecter votre tableau de données pour être ajouté sans encombre:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">===========================================================================</span>
+<span class="n">ATTENTION</span> <span class="n">NOTICE</span>
+<span class="o">===========================================================================</span>
+<span class="n">Pour</span> <span class="n">ajouter</span> <span class="n">des</span> <span class="n">données</span> <span class="n">à</span> <span class="n">partir</span> <span class="n">d</span><span class="s1">&#39;un fichier LibreOffice celui-ci doit respecter certaines conditions :</span>
+<span class="o">-</span> <span class="n">La</span> <span class="n">nom</span> <span class="n">du</span> <span class="n">fichier</span> <span class="n">doit</span> <span class="n">être</span> <span class="n">de</span> <span class="n">la</span> <span class="n">forme</span> <span class="p">:</span> <span class="n">donnees_measurements_</span><span class="o">***.</span><span class="n">ods</span>
+<span class="o">-</span> <span class="n">Les</span> <span class="n">colonnes</span> <span class="n">doivent</span> <span class="n">commencer</span> <span class="n">à</span> <span class="n">la</span> <span class="n">premiere</span> <span class="n">case</span> <span class="n">de</span> <span class="n">la</span> <span class="n">première</span> <span class="n">ligne</span> <span class="n">et</span> <span class="n">dans</span> <span class="n">l</span><span class="s1">&#39;ordre :</span>
+
+<span class="n">loc_code</span> <span class="o">|</span> <span class="n">mdate</span> <span class="o">|</span> <span class="n">mtype</span> <span class="o">|</span> <span class="n">mvalue</span> <span class="o">|</span> <span class="n">munit</span> <span class="o">|</span> <span class="n">comment</span>
+
+<span class="o">-</span> <span class="n">La</span> <span class="n">feuille</span> <span class="n">de</span> <span class="n">calcul</span> <span class="n">sur</span> <span class="n">laquelle</span> <span class="n">sont</span> <span class="n">notés</span> <span class="n">les</span> <span class="n">données</span> <span class="n">doit</span> <span class="n">s</span><span class="s1">&#39;appeler Feuille1</span>
+<span class="o">===========================================================================</span>
+<span class="n">Appuyez</span> <span class="n">sur</span> <span class="n">Entrée</span> <span class="n">une</span> <span class="n">fois</span> <span class="n">avoir</span> <span class="n">pris</span> <span class="n">connaissance</span> <span class="n">de</span> <span class="n">la</span> <span class="n">notice</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Cela permet de s’assurer que les données saisies auront le même format que celui attendu par les <code class="docutils literal notranslate"><span class="pre">TABLE</span></code> de la database. Cette
+notice est quelque peu différent selon le type d’enregistrements que vous voulez ajouter.</p>
+<p>Après avoir pris connaissance de la notice appuyez sur la touche <strong>Entrée</strong> et le programme vous indique que votre fichier
+doit se trouver dans le dossier <code class="docutils literal notranslate"><span class="pre">DATA</span></code> reservé à cet effet pour que le reste de la procédure fonctionne. Après vous avoir assurer
+du bon emplacement de votre fichier appuyez une seconde fois sur <strong>Entrée</strong>.</p>
+<p>Le programme va alors vous afficher une liste numérotée des différents fichiers présent dans le dossier <code class="docutils literal notranslate"><span class="pre">DATA</span></code> correspondant au type de données
+que vous avez selectionné. Renseignez le numéro de le liste correspondant au fichier contenant les enregistrements que vous souhaitez ajouter et validé
+avec la touche <strong>Entrée</strong>. Le fichier selectionné va être scanné et le nombre d’enregistrements contenus vous sera affiché pour éviter d’éventuelles
+confusion. Dans une dernière étape cet à vous de valider si vous souhaitez ou non ajouter ces nouvelles données à la database. Répondre par <code class="docutils literal notranslate"><span class="pre">O</span></code>,
+<code class="docutils literal notranslate"><span class="pre">o</span></code>, <code class="docutils literal notranslate"><span class="pre">Y</span></code> ou <code class="docutils literal notranslate"><span class="pre">y</span></code> mettra à jour la base de données tandis que les réponses <code class="docutils literal notranslate"><span class="pre">N</span></code> ou <code class="docutils literal notranslate"><span class="pre">n</span></code> annuleront l’opération en cours. Si les données ont bien été
+ajoutées dans le <code class="docutils literal notranslate"><span class="pre">TABLE</span></code> de <code class="docutils literal notranslate"><span class="pre">SAFEM_DATA</span></code> correspondant le programme vous le spécifiera avant de vous afficher à nouveau le <code class="docutils literal notranslate"><span class="pre">MENU</span> <span class="pre">CHOIX</span> <span class="pre">DES</span> <span class="pre">DONNEES</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>A présent vous pouvez déposer le fichier LibreOffice (.ods) dans le dossier DATA, Appuyer sur Entrée une fois le fichier déposé
+
+Fichiers disponibles:
+0 - donnees_measurements_2025-06-13.ods
+1 - donnees_measurements_2025-06-11.ods
+2 - donnees_measurements_2025-06-12.ods
+
+Choisissez votre fichier en entrant son numéro d&#39;ordre:
+
+-&gt; 1
+
+Lecture du fichier donnees_measurements_2025-06-11.ods
+3 enregistrements trouvés dans le fichier.
+Voulez-vous insérer 3 enregistrements dans la base de données? (O/N):
+
+-&gt; O
+
+Enregistrement terminé
+
+===========================================================================
+MENU CHOIX DES DONNEES
+===========================================================================
+Quelles données voulez-vous ajouter :
+1 - Localisation de puits/sources/rivières ?
+2 - Mesures physico-chimiques/piézométriques ?
+3 - Quitter le menu choix des données et retourner au menu principal
+===========================================================================
+</pre></div>
+</div>
+<p>Il est maintenant possible si vous le souhaitez de <a class="reference internal" href="modifydata.html#modify"><span class="std std-ref">Visualiser et modifier des enregistrements</span></a> même plus anciens contenus dans la database <code class="docutils literal notranslate"><span class="pre">SAFEM_DATA</span></code>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="install.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="modifydata.html" class="btn btn-neutral float-right" title="Visualiser et modifier des enregistrements" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, tgauthierbrouard.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

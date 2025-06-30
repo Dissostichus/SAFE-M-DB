@@ -1,0 +1,30 @@
+\begin{sphinxtheindex}
+\let\bigletter\sphinxstyleindexlettergroup
+\let\spxpagem \sphinxstyleindexpagemain
+\let\spxentry \sphinxstyleindexentry
+\let\spxextra \sphinxstyleindexextra
+
+  \bigletter A
+  \item \spxentry{add\_from\_DATA()}\spxextra{dans le module lib\_sql}, \hyperpage{15}
+
+  \indexspace
+  \bigletter C
+  \item \spxentry{connect\_database()}\spxextra{dans le module lib\_sql}, \hyperpage{15}
+
+  \indexspace
+  \bigletter I
+  \item \spxentry{insert\_data\_localisation()}\spxextra{dans le module lib\_sql}, \hyperpage{15}
+  \item \spxentry{insert\_data\_measurements()}\spxextra{dans le module lib\_sql}, \hyperpage{15}
+
+  \indexspace
+  \bigletter L
+  \item \spxentry{lib\_sql}
+    \subitem \spxentry{module}, \hyperpage{15}
+
+  \indexspace
+  \bigletter M
+  \item \spxentry{modify\_database\_records()}\spxextra{dans le module lib\_sql}, \hyperpage{16}
+  \item \spxentry{module}
+    \subitem \spxentry{lib\_sql}, \hyperpage{15}
+
+\end{sphinxtheindex}

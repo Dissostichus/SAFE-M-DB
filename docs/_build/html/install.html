@@ -1,0 +1,174 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation &mdash; Documentation SAFE-M-DB 1.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=7a28dfa3"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=e6b791cb"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Ajouter des enregistrements" href="adddata.html" />
+    <link rel="prev" title="Détails et structure de la base de données SAFEM_DATA" href="bones.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            SAFE-M-DB
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="bones.html">Détails et structure de la base de données SAFEM_DATA</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#charger-le-repertoire">Charger le répertoire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-de-la-base-de-donnees">Installation de la base de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#demarrage-du-programme">Démarrage du programme</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="adddata.html">Ajouter des enregistrements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modifydata.html">Visualiser et modifier des enregistrements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library.html">Documentation des fonctions</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SAFE-M-DB</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Installation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/install.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Lien vers cette rubrique"></a></h1>
+<section id="charger-le-repertoire">
+<h2>Charger le répertoire<a class="headerlink" href="#charger-le-repertoire" title="Lien vers cette rubrique"></a></h2>
+<p>Afin d’utiliser le programme vous avez besoin de charger le répertoire dans lequel il se trouve. Ce répertoire
+contient l’ensemble des codes et dossiers nécessaires à la bonne gestion de la base de donnée.</p>
+<p>Vous pouvez cloner le répertoire en saisissant directement dans le terminal la commande:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># git clone ...</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Attention, avant d’importer le programme vérifiez bien que vous vous situez dans votre répertoire de travail.</p>
+</div>
+<p>Le répertoire nouvellement chargé contient dans le dossier <code class="docutils literal notranslate"><span class="pre">src</span></code>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">open_sql.py</span></code>, le programme principal permettant d’intéragir avec la base de donnée via l’affichage d’un interface dans le terminal.</p>
+<p><code class="docutils literal notranslate"><span class="pre">lib_sql.py</span></code>, le code contenant l’ensemble des fonctions permettant le bon fonctionnement du programme principal.</p>
+<p><code class="docutils literal notranslate"><span class="pre">DATA</span></code>, ce dossier va être celui dans lequel l’utilisateur devra déposer les fichiers LibreOffice pour l” <a class="reference internal" href="adddata.html#import"><span class="std std-ref">Importation des données</span></a>.</p>
+</section>
+<section id="installation-de-la-base-de-donnees">
+<h2>Installation de la base de données<a class="headerlink" href="#installation-de-la-base-de-donnees" title="Lien vers cette rubrique"></a></h2>
+</section>
+<section id="demarrage-du-programme">
+<h2>Démarrage du programme<a class="headerlink" href="#demarrage-du-programme" title="Lien vers cette rubrique"></a></h2>
+<p>Essayons de lancer le programme pour voir comment celui-ci fonctionne. Saisissez simplement dans votre terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># A l&#39;intérieur du dossier src/</span>
+<span class="n">python3</span> <span class="s1">&#39;open_sql.py&#39;</span>
+</pre></div>
+</div>
+<p>La programme devrait se lancer avec un message de confirmation de connexion à la base de données ainsi qu’avec l’affichage
+du <code class="docutils literal notranslate"><span class="pre">MENU</span> <span class="pre">PRINCIPAL</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>You&#39;re connected to dtabase:  (&#39;SAFEM_DATA&#39;,)
+
+===========================================================================
+MENU PRINCIPAL
+===========================================================================
+Que souhaitez-vous faire ?
+1 - Ajouter de nouvelles données
+2 - Ajouter à partir d&#39;un fichier déjà remplit
+3 - Visualiser/Modifier d&#39;anciennes données
+4 - Quitter
+===========================================================================
+?
+</pre></div>
+</div>
+<p>Plusieurs choix s’offrent alors à vous :</p>
+<p><a class="reference internal" href="adddata.html#add"><span class="std std-ref">Ajouter des enregistrements</span></a></p>
+<p><a class="reference internal" href="modifydata.html#modify"><span class="std std-ref">Visualiser et modifier des enregistrements</span></a></p>
+<div class="admonition warning">
+<p class="admonition-title">Avertissement</p>
+<p>Si le programme ne parvient pas à ce connecter à la base de données le message d’erreur suivant apparaitra:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="k">while</span> <span class="n">connecting</span> <span class="n">to</span> <span class="n">MySQL</span>
+</pre></div>
+</div>
+<p>Vérifiez alors si les paramètres de connexion dans la fonction <code class="docutils literal notranslate"><span class="pre">connect_database()</span></code> sont corrects.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="bones.html" class="btn btn-neutral float-left" title="Détails et structure de la base de données SAFEM_DATA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="adddata.html" class="btn btn-neutral float-right" title="Ajouter des enregistrements" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, tgauthierbrouard.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

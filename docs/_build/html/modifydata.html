@@ -1,0 +1,181 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visualiser et modifier des enregistrements &mdash; Documentation SAFE-M-DB 1.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=7a28dfa3"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=e6b791cb"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Documentation des fonctions" href="library.html" />
+    <link rel="prev" title="Ajouter des enregistrements" href="adddata.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            SAFE-M-DB
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="bones.html">Détails et structure de la base de données SAFEM_DATA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="adddata.html">Ajouter des enregistrements</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Visualiser et modifier des enregistrements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library.html">Documentation des fonctions</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SAFE-M-DB</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Visualiser et modifier des enregistrements</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/modifydata.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="visualiser-et-modifier-des-enregistrements">
+<span id="modify"></span><h1>Visualiser et modifier des enregistrements<a class="headerlink" href="#visualiser-et-modifier-des-enregistrements" title="Lien vers cette rubrique"></a></h1>
+<p>En dernier lieu ce programme vous permet d’accéder aux enregistrements contenus dans la base de données et si vous le souhaitez
+de les modifier. Dans le <code class="docutils literal notranslate"><span class="pre">MENU</span> <span class="pre">PRINCIPAL</span></code> selectionnez l’option <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">-</span> <span class="pre">Visualiser/Modifier</span> <span class="pre">d'anciennes</span> <span class="pre">données</span></code>. Une fois n’est
+pas coutume vous devez ensuite spécifier le type de données auquel vous désirez accéder . Cela permet au programme de savoir dans quel
+<code class="docutils literal notranslate"><span class="pre">TABLE</span></code> de <code class="docutils literal notranslate"><span class="pre">SAFEM_DATA</span></code> chercher.</p>
+<p>Dans le menu <code class="docutils literal notranslate"><span class="pre">SELECTION</span> <span class="pre">DES</span> <span class="pre">DONNEES</span></code> qui s’affiche ensuite vous devez choisir la façon dont vous souhaitez accéder à vos données.
+La base de données <code class="docutils literal notranslate"><span class="pre">SAFEM_DATA</span></code> contenant de nombreux enregistrements une premièr recoupement est nécessaire. Vous avez le choix entre utilisez
+le code de nomenclature (cf. <a class="reference internal" href="bones.html#skeleton"><span class="std std-ref">Détails et structure de la base de données SAFEM_DATA</span></a>) ou bien la date de la prise de mesure ou de l’enregistrement de la localisation du puit.</p>
+<p>Selectionnez le mode de recherche puis renseignez votre code ou votre date. Le programme va alors vous dressez la liste de tout les enregistrement qui
+correspondent à l’indice de recherche que vous avez rentré:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">===========================================================================</span>
+<span class="n">SELECTION</span> <span class="n">DES</span> <span class="n">DONNEES</span>
+<span class="o">===========================================================================</span>
+<span class="n">Comment</span> <span class="n">voulez</span><span class="o">-</span><span class="n">vous</span> <span class="n">accéder</span> <span class="n">à</span> <span class="n">vos</span> <span class="n">données</span> <span class="p">:</span>
+<span class="mi">1</span> <span class="o">-</span> <span class="n">En</span> <span class="n">saisissant</span> <span class="n">le</span> <span class="n">code</span> <span class="n">de</span> <span class="n">localisation</span> <span class="p">(</span><span class="n">nomenclature</span><span class="p">)</span>
+<span class="mi">2</span> <span class="o">-</span> <span class="n">En</span> <span class="n">saisissant</span> <span class="n">la</span> <span class="n">date</span> <span class="n">de</span> <span class="n">la</span> <span class="n">prise</span> <span class="n">de</span> <span class="n">la</span> <span class="n">mesure</span>
+<span class="mi">3</span> <span class="o">-</span> <span class="n">Retour</span> <span class="n">au</span> <span class="n">menu</span> <span class="n">principal</span>
+<span class="o">===========================================================================</span>
+
+<span class="o">-&gt;</span> <span class="mi">2</span>
+
+<span class="n">Saisissez</span> <span class="n">la</span> <span class="n">date</span> <span class="p">(</span><span class="nb">format</span> <span class="n">YYYY</span><span class="o">-</span><span class="n">MM</span><span class="o">-</span><span class="n">DD</span><span class="p">)</span> <span class="p">:</span>
+
+<span class="o">-&gt;</span> <span class="mi">2025</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">12</span>
+
+<span class="n">Enregistrements</span> <span class="n">trouvés</span> <span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+<span class="n">rec</span> <span class="n">loc_code</span>      <span class="n">mdate</span> <span class="n">mtype</span>  <span class="n">mvalue</span>  <span class="n">comment</span>
+<span class="mi">1397</span>     <span class="n">L003</span> <span class="mi">2025</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">12</span>   <span class="n">Orp</span>   <span class="mf">256.0</span>  <span class="n">modifie</span>
+<span class="mi">1398</span>     <span class="n">L003</span> <span class="mi">2025</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">12</span>   <span class="n">Orp</span>   <span class="mf">165.0</span> <span class="n">modifié4</span>
+<span class="mi">1399</span>     <span class="n">L003</span> <span class="mi">2025</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">12</span>   <span class="n">Orp</span>   <span class="mf">255.0</span>     <span class="kc">None</span>
+<span class="mi">1407</span>     <span class="n">IPGP</span> <span class="mi">2025</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">12</span> <span class="n">piezo</span>   <span class="mf">135.0</span>    <span class="n">chaud</span>
+<span class="n">Entrez</span> <span class="n">le</span> <span class="n">numéro</span> <span class="s1">&#39;rec&#39;</span> <span class="n">de</span> <span class="n">l</span><span class="s1">&#39;enregistrement à modifier/visualiser (0 pour annuler) :</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Dans le cas où vous recherchez des enregistrement de localisation avec le code de nomenclature il est tout à fait normal de n’obtenir qu’un seul
+enregistrement correspondant puis cette clef de recherche est unique et propre à chaque puit recenscé.</p>
+</div>
+<p>Il vous est donc possible de visualiser n’importe quelles données de la database pour peu que vous connaissiez la nomenclature ou la date de la prise de données
+de l’enregistrement recherché. Il vous est, dans la suite du programme, aussi possible de modifié un enregistrement spécifique.
+Le programme vous demande alors de renseignez le code d’enregistrement <code class="docutils literal notranslate"><span class="pre">rec</span></code> (dans le cas de données de mesures) ou le code de nomenclature <code class="docutils literal notranslate"><span class="pre">loc_code</span></code>
+(dans le cas de données de localisation) qui correspond à la ligne de l’enregistrement que vous souhaitez modifier. Si vous ne souhaitez pas modifier de données saisissez
+la touche <code class="docutils literal notranslate"><span class="pre">0</span></code> pour revenir au <code class="docutils literal notranslate"><span class="pre">MENU</span> <span class="pre">PRINCIPAL</span></code>.</p>
+<p>Une fois votre réponse validée un fichier LibreOffice
+s’ouvre contenant la ligne que vous pouvez dès à présent modifier. N’oubliez d’enregistrer vos modifications avec <strong>CTRL + S</strong>. Une fois terminé refermez le fichier, retournez
+sur le programme et appuyez sur <strong>Entrée</strong> pour mettre à jour la database.</p>
+<p>Le programme vous annonce la bonne modification de la base de données et vous redirige ensuite sur le <code class="docutils literal notranslate"><span class="pre">MENU</span> <span class="pre">PRINCIPAL</span></code> pour poursuivre votre travail:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Entrez le numéro &#39;rec&#39; de l&#39;enregistrement à modifier/visualiser (0 pour annuler) :
+
+-&gt; 1398
+
+Fichier modify_measurements.ods généré pour modification.
+Appuyez sur Entrée après avoir enregistré vos modifications
+Enregistrement rec=1398 mis à jour avec succès!
+
+===========================================================================
+MENU PRINCIPAL
+===========================================================================
+Que souhaitez-vous faire ?
+1 - Ajouter de nouvelles données
+2 - Ajouter à partir d&#39;un fichier déjà remplit
+3 - Visualiser/Modifier d&#39;anciennes données
+4 - Quitter
+===========================================================================
+?
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="adddata.html" class="btn btn-neutral float-left" title="Ajouter des enregistrements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="library.html" class="btn btn-neutral float-right" title="Documentation des fonctions" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, tgauthierbrouard.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

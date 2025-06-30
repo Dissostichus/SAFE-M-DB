@@ -1,0 +1,547 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentation Base de données SAFE-M 1.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=0f7429dd"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=e6b791cb"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Base de données SAFE-M
+          </a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="#document-skeleton">Détails et structure de la base de données SAFEM_DATA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-install">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-adddata">Ajouter des enregistrements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-modifydata">Visualiser et modifier des enregistrements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-library">Documentation des fonctions</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Base de données SAFE-M</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Documentation Base de données SAFE-M 1.0</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="base-de-donnees-safe-m-documentation">
+<h1>Base de données SAFE-M documentation<a class="headerlink" href="#base-de-donnees-safe-m-documentation" title="Lien vers cette rubrique"></a></h1>
+<p>Ce programme permet d’intéragir avec la base de données sur l’eau à Madagaser de l’association
+SAFE-M de manière la plus intuitive possible au travers du remplissage et de la modification de fichiers
+LibreOffice générés automatiquement.</p>
+<div class="toctree-wrapper compound">
+<span id="document-skeleton"></span><section id="details-et-structure-de-la-base-de-donnees-safem-data">
+<span id="skeleton"></span><h2>Détails et structure de la base de données SAFEM_DATA<a class="headerlink" href="#details-et-structure-de-la-base-de-donnees-safem-data" title="Lien vers cette rubrique"></a></h2>
+<p>La base de données sur l’eau à Madagascar <code class="docutils literal notranslate"><span class="pre">SAFEM_DATA</span></code> contient 5 <code class="docutils literal notranslate"><span class="pre">TABLES</span></code> de données:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MariaDB</span> <span class="p">[</span><span class="n">SAFEM_DATA</span><span class="p">]</span><span class="o">&gt;</span> <span class="n">show</span> <span class="n">tables</span><span class="p">;</span>
+
+<span class="o">+----------------------+</span>
+<span class="o">|</span> <span class="n">Tables_in_SAFEM_DATA</span> <span class="o">|</span>
+<span class="o">+----------------------+</span>
+<span class="o">|</span> <span class="n">Members</span>              <span class="o">|</span>
+<span class="o">|</span> <span class="n">courses</span>              <span class="o">|</span>
+<span class="o">|</span> <span class="n">localisation</span>         <span class="o">|</span>
+<span class="o">|</span> <span class="n">measurements</span>         <span class="o">|</span>
+<span class="o">|</span> <span class="n">science</span>              <span class="o">|</span>
+<span class="o">+----------------------+</span>
+</pre></div>
+</div>
+<p>Le <strong>TABLE</strong> <code class="docutils literal notranslate"><span class="pre">Members</span></code> regroupe des informations sur les collaborateurs de SAFE-M.</p>
+<p>Le <strong>TABLE</strong> <code class="docutils literal notranslate"><span class="pre">courses</span></code> contient plusieurs cours d’hydrologie ou de programmation de niveau Licence 3 et Master.</p>
+<p>Le <strong>TABLE</strong> <code class="docutils literal notranslate"><span class="pre">science</span></code> possède plusieurs références bibliographiques.</p>
+<p>Les deux derniers <strong>TABLES</strong> vont être décris plus en détails car le programme documenté ici permet d’intéragir facilement aver la base de données
+de manière interactive via ces deux <strong>TABLES</strong>.</p>
+<section id="measurements">
+<h3>measurements<a class="headerlink" href="#measurements" title="Lien vers cette rubrique"></a></h3>
+<p>ce <strong>TABLE</strong> possède 7 colonnes de données</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MariaDB</span> <span class="p">[</span><span class="n">SAFEM_DATA</span><span class="p">]</span><span class="o">&gt;</span> <span class="n">select</span> <span class="o">*</span> <span class="kn">from</span><span class="w"> </span><span class="nn">measurements</span><span class="p">;</span>
+
+<span class="o">+------+----------+---------------------+------------------------+---------+-----------+-------------------------------------+</span>
+<span class="o">|</span> <span class="n">rec</span>  <span class="o">|</span> <span class="n">loc_code</span> <span class="o">|</span> <span class="n">mdate</span>               <span class="o">|</span> <span class="n">mtype</span>                  <span class="o">|</span> <span class="n">mvalue</span>  <span class="o">|</span> <span class="n">munit</span>     <span class="o">|</span> <span class="n">comment</span>                             <span class="o">|</span>
+<span class="o">+------+----------+---------------------+------------------------+---------+-----------+-------------------------------------+</span>
+<span class="o">|</span>  <span class="mi">157</span> <span class="o">|</span> <span class="n">A001</span>     <span class="o">|</span> <span class="mi">2022</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">14</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="o">|</span> <span class="n">Profondeur</span> <span class="n">puits</span>       <span class="o">|</span>      <span class="mi">15</span> <span class="o">|</span> <span class="n">m</span>         <span class="o">|</span> <span class="n">date</span> <span class="n">approx</span>                         <span class="o">|</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">rec</span></code>, doit être un nombre entier, est un numéro d’enregistrement automatiquement attribué par la base de donnée lorsque un nouvel enregistrement est fournit.</p>
+<p><code class="docutils literal notranslate"><span class="pre">loc_code</span></code>, doit être une chaine de caractères, est un code qui fait office de nomenclature, ce code consensuel, unique et propre à chaque puit, source ou rivière est attribué par les utilisateurs
+lors de l’enregistrement d’une nouvelle localisation. Cela permet de cataloguer, d’identifier clairement et de retrouver de manière simple un point d’enregistrement.
+Chaque mesure physico-chimique d’échantillon d’eau (par exemple) ou mesure piezométrique est donc associé au puit d’où provient l’échantillon par ce code.</p>
+<p><code class="docutils literal notranslate"><span class="pre">mdate</span></code>, au format <strong>YYYY-MM-DD 00:00:00</strong>, va contenir la date à laquelle à été prise la mesure, les six derniers chiffres correspondent aux heures, minutes et secondes.</p>
+<p><code class="docutils literal notranslate"><span class="pre">mtype</span></code>, doit être une chaine de caractères, va correspondre au type de mesure effectuée, le plus souvent cela peut-être <strong>pH</strong>, <strong>Orp</strong>, <strong>Od</strong>, <strong>Conductivité</strong> ou <strong>mesure piézométrique</strong>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">mvalue</span></code>, doit être un nombre entier ou à virgule, contient la valeur mesurée.</p>
+<p><code class="docutils literal notranslate"><span class="pre">munit</span></code>, doit être une chaine de caractères, contient les unités de la mesures.</p>
+<p><code class="docutils literal notranslate"><span class="pre">comment</span></code>, doit être une chaine de caractère, permet de rajouter quelques commentaires sur la prise de mesures et d’eventuelles informations, par exemple la hauteur de
+la margelle du puit pour une mesure piezométrique.</p>
+<section id="saisie-sur-document-libreoffice">
+<h4>Saisie sur document LibreOffice<a class="headerlink" href="#saisie-sur-document-libreoffice" title="Lien vers cette rubrique"></a></h4>
+<p>Lors de la saisie de données de mesure sur les documents <strong>LibreOffice</strong> qui vont permettre d’intéragir avec la base de données assurez-vous que les champs que vous remplissez
+respecte bien le format attendu et décrit plus haut.</p>
+<p>Tout les champs peuvent ne pas être remplis en cas de manque de données et d’informations néanmoins certains sont obligatoires
+pour assurer la validité de l’enregistrement et sont ajout à la base de données. Dans le cas du <strong>TABLES</strong> <code class="docutils literal notranslate"><span class="pre">measurements</span></code>  seul le champs <code class="docutils literal notranslate"><span class="pre">loc_code</span></code> est obligatoire.</p>
+<p>Lors de la saisie de données sur <strong>LibreOffice</strong> vous remarquerez que le champs <code class="docutils literal notranslate"><span class="pre">rec</span></code> n’apparait pas, cette information va être automatiquement ajoutée lors de l’ajout à la database, l’utiliateur n’a pas à s’en
+préoccuper.</p>
+</section>
+</section>
+<section id="localisation">
+<h3>localisation<a class="headerlink" href="#localisation" title="Lien vers cette rubrique"></a></h3>
+<p>Ce <strong>TABLE</strong> possède 16 colonnes de données:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MariaDB</span> <span class="p">[</span><span class="n">SAFEM_DATA</span><span class="p">]</span><span class="o">&gt;</span> <span class="n">select</span> <span class="o">*</span> <span class="kn">from</span><span class="w"> </span><span class="nn">localisation</span><span class="p">;</span>
+
+<span class="o">+----------+------------------------------------+-------------------------------------+----------+-----------+----------+--------------------------------+-----------------------+----------------------+------------------------------------+----------------------+---------------------+------------------+-----------------+------------------------------------+----------+</span>
+<span class="o">|</span> <span class="n">rec_code</span> <span class="o">|</span> <span class="n">loc_type</span>                           <span class="o">|</span> <span class="n">name</span>                                <span class="o">|</span> <span class="n">latitude</span> <span class="o">|</span> <span class="n">longitude</span> <span class="o">|</span> <span class="n">altitude</span> <span class="o">|</span> <span class="n">description</span>                    <span class="o">|</span> <span class="n">contact</span>               <span class="o">|</span> <span class="n">coord_sys</span>            <span class="o">|</span> <span class="n">gps_used</span>                           <span class="o">|</span> <span class="n">exploitation</span>         <span class="o">|</span> <span class="n">loc_date</span>            <span class="o">|</span> <span class="n">referentiel_z</span>    <span class="o">|</span> <span class="n">photos_list</span>     <span class="o">|</span> <span class="n">quartier</span>                           <span class="o">|</span> <span class="n">loc_code</span> <span class="o">|</span>
+<span class="o">+----------+------------------------------------+-------------------------------------+----------+-----------+----------+--------------------------------+-----------------------+----------------------+------------------------------------+----------------------+---------------------+------------------+-----------------+------------------------------------+----------+</span>
+<span class="o">|</span>        <span class="mi">1</span> <span class="o">|</span> <span class="n">puits</span>                              <span class="o">|</span> <span class="n">NULL</span>                                <span class="o">|</span> <span class="o">-</span><span class="mf">18.9103</span> <span class="o">|</span>   <span class="mf">47.5559</span> <span class="o">|</span>     <span class="mi">1289</span> <span class="o">|</span> <span class="n">sec</span>                            <span class="o">|</span>                       <span class="o">|</span> <span class="n">WGS84</span>                <span class="o">|</span> <span class="n">NULL</span>                               <span class="o">|</span> <span class="n">NULL</span>                 <span class="o">|</span> <span class="n">NULL</span>                <span class="o">|</span> <span class="n">NULL</span>             <span class="o">|</span> <span class="n">NULL</span>            <span class="o">|</span> <span class="n">NULL</span>                               <span class="o">|</span> <span class="n">A001</span>     <span class="o">|</span>
+<span class="o">|</span>        <span class="mi">2</span> <span class="o">|</span> <span class="n">puits</span> <span class="n">privé</span> <span class="n">traditionnel</span>           <span class="o">|</span> <span class="n">NULL</span>                                <span class="o">|</span> <span class="o">-</span><span class="mf">18.9104</span> <span class="o">|</span>   <span class="mf">47.5573</span> <span class="o">|</span>     <span class="mi">1282</span> <span class="o">|</span>                                <span class="o">|</span>                       <span class="o">|</span> <span class="n">WGS84</span>                <span class="o">|</span> <span class="n">NULL</span>                               <span class="o">|</span> <span class="n">NULL</span>                 <span class="o">|</span> <span class="n">NULL</span>                <span class="o">|</span> <span class="n">NULL</span>             <span class="o">|</span> <span class="n">NULL</span>            <span class="o">|</span> <span class="n">NULL</span>                               <span class="o">|</span> <span class="n">A002</span>     <span class="o">|</span>
+<span class="o">|</span>        <span class="mi">3</span> <span class="o">|</span> <span class="n">forage</span> <span class="n">du</span> <span class="n">campus</span>                   <span class="o">|</span> <span class="n">NULL</span>                                <span class="o">|</span> <span class="o">-</span><span class="mf">18.9115</span> <span class="o">|</span>   <span class="mf">47.5581</span> <span class="o">|</span>     <span class="mi">1263</span> <span class="o">|</span>                                <span class="o">|</span>                       <span class="o">|</span> <span class="n">WGS84</span>                <span class="o">|</span> <span class="n">NULL</span>                               <span class="o">|</span> <span class="n">NULL</span>                 <span class="o">|</span> <span class="n">NULL</span>                <span class="o">|</span> <span class="n">NULL</span>             <span class="o">|</span> <span class="n">NULL</span>            <span class="o">|</span> <span class="n">NULL</span>                               <span class="o">|</span> <span class="n">A003</span>     <span class="o">|</span>
+<span class="o">|</span>        <span class="mi">4</span> <span class="o">|</span> <span class="n">forage</span> <span class="n">privé</span>                       <span class="o">|</span> <span class="n">NULL</span>                                <span class="o">|</span> <span class="o">-</span><span class="mf">18.9114</span> <span class="o">|</span>   <span class="mf">47.5581</span> <span class="o">|</span>     <span class="mi">1271</span> <span class="o">|</span>                                <span class="o">|</span>                       <span class="o">|</span> <span class="n">WGS84</span>                <span class="o">|</span> <span class="n">NULL</span>                               <span class="o">|</span> <span class="n">NULL</span>                 <span class="o">|</span> <span class="n">NULL</span>                <span class="o">|</span> <span class="n">NULL</span>             <span class="o">|</span> <span class="n">NULL</span>            <span class="o">|</span> <span class="n">NULL</span>                               <span class="o">|</span> <span class="n">A004</span>     <span class="o">|</span>
+<span class="o">|</span>        <span class="mi">5</span> <span class="o">|</span> <span class="n">forage</span> <span class="n">piblic</span>                      <span class="o">|</span> <span class="n">NULL</span>                                <span class="o">|</span> <span class="o">-</span><span class="mf">18.9097</span> <span class="o">|</span>   <span class="mf">47.5575</span> <span class="o">|</span>     <span class="mi">1271</span> <span class="o">|</span> <span class="n">fermé</span> <span class="n">et</span> <span class="n">non</span> <span class="n">fonctionnel</span>       <span class="o">|</span>                       <span class="o">|</span> <span class="n">WGS84</span>                <span class="o">|</span> <span class="n">NULL</span>                               <span class="o">|</span> <span class="n">NULL</span>                 <span class="o">|</span> <span class="n">NULL</span>                <span class="o">|</span> <span class="n">NULL</span>             <span class="o">|</span> <span class="n">NULL</span>            <span class="o">|</span> <span class="n">NULL</span>                               <span class="o">|</span> <span class="n">A005</span>     <span class="o">|</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">rec_code</span></code>, doit être un nombre entier, est un numéro d’enregistrement automatiquement attribué par la base de donnée lorsque un nouvel enregistrement est fournit.</p>
+<p><code class="docutils literal notranslate"><span class="pre">loc_type</span></code>, doit être une chaine de caractères, pour indiquer qu’est ce qui a été localisé lors de l’enregistrement, une puit, une source, un forage.</p>
+<p><code class="docutils literal notranslate"><span class="pre">name</span></code>, doit être une chaine de caractères, permet d’indiquer le nom de le/la propriétaire du puit par exemple.</p>
+<p><code class="docutils literal notranslate"><span class="pre">latitude</span></code>, <code class="docutils literal notranslate"><span class="pre">longitude</span></code>, <code class="docutils literal notranslate"><span class="pre">altitude</span></code>, doivent être des nombres à virgule et sont obtenues par mesure GPS RTK.</p>
+<p><code class="docutils literal notranslate"><span class="pre">description</span></code>, doit être une chaine de caractère, permet de completer avec des informations supplémentaires.</p>
+<p><code class="docutils literal notranslate"><span class="pre">contact</span></code>, doit être une chaine de caractère, permet de renseigner si le/la propriétaire possède un moyen de contact, email, téléphone ou autre.</p>
+<p><code class="docutils literal notranslate"><span class="pre">coord_sys</span></code>, doit être une chaine de caractère, par défaut si rien n’est renseigné ce sera WGS84,  il s’agit d’un système de coordonnées géographiques mondial.</p>
+<p><code class="docutils literal notranslate"><span class="pre">gps_used</span></code>, doit être une chaine de caractère, permet de renseigner le modèle du GPS utilisé.</p>
+<p><code class="docutils literal notranslate"><span class="pre">exploitation</span></code>, doit être une chaine de caractère, permet de renseigner la type d’utilisation du puit si c’est pour un usage domestique par exemple, ou s’il n’est
+plus exploité et depuis combien de temps.</p>
+<p><code class="docutils literal notranslate"><span class="pre">loc_date</span></code>, au format <strong>YYYY-MM-DD 00:00:00</strong>, contient la date à laquelle à été prise la mesure de localisation.</p>
+<p><code class="docutils literal notranslate"><span class="pre">referentiel_z</span></code>, doit être une chaine de caractère, permet d’indiquer d’où la mesure d’altitude est prise, s’il s’agit de la tête du puit, de la base de la margelle, etc.</p>
+<p><code class="docutils literal notranslate"><span class="pre">photos_list</span></code>, doit être du texte, par exemple : IMG_20221028_091535, permet d’ajouter la référence de photo du puits qui vont être enregistrés dans un dossier extérieur mais
+qu’il sera facile de retrouver grâce à cette référence.</p>
+<p><code class="docutils literal notranslate"><span class="pre">quartier</span></code>, doit être une chaine de caractère, permet de renseigner le quartier dans lequel se situe la localisation.</p>
+<p><code class="docutils literal notranslate"><span class="pre">loc_code</span></code>, doit être une chaine de caractère, il s’agit du code qui fait office de nomenclature, ce code consensuel, unique et propre à chaque puit, source ou rivière est attribué par les utilisateurs
+lors de l’enregistrement d’une nouvelle localisation. Cela permet de cataloguer, d’identifier clairement et de retrouver de manière simple un point d’enregistrement.</p>
+<section id="id1">
+<h4>Saisie sur document LibreOffice<a class="headerlink" href="#id1" title="Lien vers cette rubrique"></a></h4>
+<p>Lors de la saisie de données de localisation sur les documents <strong>LibreOffice</strong> qui vont permettre d’intéragir avec la base de données assurez-vous que les champs que vous remplissez
+respecte bien le format attendu et décrit plus haut.</p>
+<p>Tout les champs peuvent ne pas être remplis en cas de manque de données et d’informations néanmoins certains sont obligatoires
+pour assurer la validité de l’enregistrement et l’ajouter à la base de données. Les champs obligatoires dans le cas du <strong>TABLES</strong> <code class="docutils literal notranslate"><span class="pre">localisation</span></code> sont : <code class="docutils literal notranslate"><span class="pre">loc_type</span></code>, <code class="docutils literal notranslate"><span class="pre">latitude</span></code>, <code class="docutils literal notranslate"><span class="pre">longitude</span></code> et <code class="docutils literal notranslate"><span class="pre">loc_code</span></code>.</p>
+<p>Lors de la saisie de données sur LibreOffice vous remarquerez que le champs <code class="docutils literal notranslate"><span class="pre">rec_code</span></code> n’apparait pas, cette information va être automatiquement ajoutée lors de l’ajout à la database, l’utiliateur n’a pas à s’en
+préoccuper.</p>
+</section>
+</section>
+</section>
+<span id="document-install"></span><section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Lien vers cette rubrique"></a></h2>
+<section id="charger-le-repertoire">
+<h3>Charger le répertoire<a class="headerlink" href="#charger-le-repertoire" title="Lien vers cette rubrique"></a></h3>
+<p>Afin d’utiliser le programme vous avez besoin de charger le répertoire dans lequel il se trouve. Ce répertoire
+contient l’ensemble des codes et dossiers nécessaires à la bonne gestion de la base de donnée.</p>
+<p>Vous pouvez cloner le répertoire en saisissant directement dans le terminal la commande:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># git clone ...</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Attention, avant d’importer le programme vérifiez bien que vous vous situez dans votre répertoire de travail.</p>
+</div>
+<p>Le répertoire nouvellement chargé contient :</p>
+</section>
+<section id="installation-de-la-base-de-donnees">
+<h3>Installation de la base de données<a class="headerlink" href="#installation-de-la-base-de-donnees" title="Lien vers cette rubrique"></a></h3>
+</section>
+<section id="demarrage-du-programme">
+<h3>Démarrage du programme<a class="headerlink" href="#demarrage-du-programme" title="Lien vers cette rubrique"></a></h3>
+<p>Essayons de lancer le programme pour voir comment celui-ci fonctionne. Saisissez simplement dans votre terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># A l&#39;intérieur du dossier</span>
+<span class="n">python3</span> <span class="s1">&#39;open_sql.py&#39;</span>
+</pre></div>
+</div>
+<p>La programme devrait se lancer avec un message de confirmation de connexion à la base de données ainsi qu’avec l’affichage
+du <code class="docutils literal notranslate"><span class="pre">MENU</span> <span class="pre">PRINCIPAL</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>You&#39;re connected to dtabase:  (&#39;SAFEM_DATA&#39;,)
+
+===========================================================================
+MENU PRINCIPAL
+===========================================================================
+Que souhaitez-vous faire ?
+1 - Ajouter de nouvelles données
+2 - Ajouter à partir d&#39;un fichier déjà remplit
+3 - Visualiser/Modifier d&#39;anciennes données
+4 - Quitter
+===========================================================================
+?
+</pre></div>
+</div>
+<p>Plusieurs choix s’offrent alors à vous :</p>
+<p><a class="reference internal" href="#document-adddata#add"><span class="std std-ref">Ajouter des enregistrements</span></a></p>
+<p><a class="reference internal" href="#document-modifydata#modify"><span class="std std-ref">Visualiser et modifier des enregistrements</span></a></p>
+<div class="admonition warning">
+<p class="admonition-title">Avertissement</p>
+<p>Si le programme ne parvient pas à ce connecter à la base de données le message d’erreur suivant apparaitra:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="k">while</span> <span class="n">connecting</span> <span class="n">to</span> <span class="n">MySQL</span>
+</pre></div>
+</div>
+<p>Vérifiez alors si les paramètres de connection dans la fonction <code class="docutils literal notranslate"><span class="pre">connect_database()</span></code> sont corrects.</p>
+</div>
+</section>
+</section>
+<span id="document-adddata"></span><section id="ajouter-des-enregistrements">
+<span id="add"></span><h2>Ajouter des enregistrements<a class="headerlink" href="#ajouter-des-enregistrements" title="Lien vers cette rubrique"></a></h2>
+<section id="saisie-des-donnees">
+<h3>Saisie des données<a class="headerlink" href="#saisie-des-donnees" title="Lien vers cette rubrique"></a></h3>
+<p>Il est possible de saisir de nouveaux enregistrements dans la base de données. Dans l’interface <code class="docutils literal notranslate"><span class="pre">MENU</span> <span class="pre">PRINCIPAL</span></code> choisissez l’option
+<code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">-</span> <span class="pre">Ajouter</span> <span class="pre">de</span> <span class="pre">nouvelles</span> <span class="pre">données</span></code>, appuyez sur la touche <code class="docutils literal notranslate"><span class="pre">1</span></code> et validez avec la touche <strong>Entrée</strong>.</p>
+<p>Le programme vous demandera alors quel est le type de données que vous souhaitez ajouter. Cela determinera dans quel <strong>TABLE</strong> de la base
+de données les enregistrements vont être sauvegarder. Pour sélectionner l’option désirée saisissez le chiffre correspondant et valider avec la touche
+<strong>Entrée</strong>.</p>
+<p>Le programme va vous afficher un message de création du fichier LibreOffice dans lequel vous allez devoir renseigner vos données. Directement après reception
+de ce message ce fichier LibreOffice Calc s’ouvre:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>You&#39;re connected to dtabase:  (&#39;SAFEM_DATA&#39;,)
+
+===========================================================================
+MENU PRINCIPAL
+===========================================================================
+Que souhaitez-vous faire ?
+1 - Ajouter de nouvelles données
+2 - Ajouter à partir d&#39;un fichier déjà remplit
+3 - Visualiser/Modifier d&#39;anciennes données
+4 - Quitter
+===========================================================================
+?
+
+-&gt; 1
+
+    ===========================================================================
+    MENU CHOIX DES DONNEES
+    ===========================================================================
+    Quelles données voulez-vous ajouter :
+    1 - Localisation de puits/sources/rivières ?
+    2 - Mesures physico-chimiques/piézométriques ?
+    3 - Quitter le menu choix des données et retourner au menu principal
+    ===========================================================================
+
+-&gt; 2
+
+Fichier ODS &#39;template_measurements.ods&#39; créé avec succès.
+Une fois le fichier LibreOffice enregistré, Appuyez sur Entrée
+</pre></div>
+</div>
+<img alt="_images/fig_template_measurements.png" src="_images/fig_template_measurements.png" />
+<p>Ces fichiers LibreOffice <code class="docutils literal notranslate"><span class="pre">template_measurements.ods</span></code> et <code class="docutils literal notranslate"><span class="pre">template_localisation.ods</span></code>, respectivement si vous souhaitez ajouter des données
+de mesures physico-chimique/piezométrique ou de localisation de puits, possède des entêtes de colonnes pré-remplies. Il vous suffit donc simplement
+de saisir les informations dans la colonne correspondante. Si vous ne possédez pas certaines informations non essentielle, aucun problème. Chaque
+ligne remplie correspond à un enregistrement. Une fois toutes les données saisis enregistré le fichier avec <strong>CTRL + S</strong> puis fermez le. Vous
+pouvez maintenant revenir au programme et appuyez sur <strong>Entrée</strong> pour ajouter ces nouvelles données dans la database:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Database</span> <span class="n">mis</span> <span class="n">à</span> <span class="n">jour</span>
+</pre></div>
+</div>
+<p>La base de données SAFEM_DATA est mise à jour et contient désormais vous nouveaux enregistrements dans les TABLES localisation ou measurements suivant le type de données ajouté.
+Vous retombez ensuite sur le menu <code class="docutils literal notranslate"><span class="pre">CHOIX</span> <span class="pre">DES</span> <span class="pre">DONNEES</span></code> que vous pouvez quitter avec l’option <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">-</span> <span class="pre">Quitter</span> <span class="pre">le</span> <span class="pre">menu</span> <span class="pre">choix</span> <span class="pre">des</span> <span class="pre">données</span> <span class="pre">et</span> <span class="pre">retourner</span> <span class="pre">au</span> <span class="pre">menu</span> <span class="pre">principal</span></code>
+si vous n’avez plus aucun enregistrement à sauvegarder.</p>
+<div class="admonition warning">
+<p class="admonition-title">Avertissement</p>
+<p>Attention lors de la saisie de vos données dans le fichier LibreOffice que celle-ci respecte bien le format attendu.
+Pour vérifier si le format correspond toutes les informations sont rappelées avec les <a class="reference internal" href="#document-skeleton#skeleton"><span class="std std-ref">Détails et structure de la base de données SAFEM_DATA</span></a>.</p>
+</div>
+</section>
+<section id="importation-des-donnees">
+<h3>Importation des données<a class="headerlink" href="#importation-des-donnees" title="Lien vers cette rubrique"></a></h3>
+<p>Le programme offre aussi la possibilité d’ajouter de nouveaux enregistrements directement à partir d’un fichier de données
+<strong>LibreOffice Calc</strong> déjà rempli auparavant. Dans l’interface <code class="docutils literal notranslate"><span class="pre">MENU</span> <span class="pre">PRINCIPAL</span></code> choisissez l’option
+<code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">-</span> <span class="pre">Ajouter</span> <span class="pre">à</span> <span class="pre">partir</span> <span class="pre">d'un</span> <span class="pre">fichier</span> <span class="pre">déjà</span> <span class="pre">remplit</span></code>, appuyez sur la touche <code class="docutils literal notranslate"><span class="pre">2</span></code> et validez avec la touche <strong>Entrée</strong>.
+Comme pour une saisie direct de données vous devrez ensuite spécifié le type de données que vous souhaitez ajouter.
+Le programme vous affichera une notice quand au format que doit respecter votre tableau de données pour être ajouté sans encombre:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">===========================================================================</span>
+<span class="n">ATTENTION</span> <span class="n">NOTICE</span>
+<span class="o">===========================================================================</span>
+<span class="n">Pour</span> <span class="n">ajouter</span> <span class="n">des</span> <span class="n">données</span> <span class="n">à</span> <span class="n">partir</span> <span class="n">d</span><span class="s1">&#39;un fichier LibreOffice celui-ci doit respecter certaines conditions :</span>
+<span class="o">-</span> <span class="n">La</span> <span class="n">nom</span> <span class="n">du</span> <span class="n">fichier</span> <span class="n">doit</span> <span class="n">être</span> <span class="n">de</span> <span class="n">la</span> <span class="n">forme</span> <span class="p">:</span> <span class="n">donnees_measurements_</span><span class="o">***.</span><span class="n">ods</span>
+<span class="o">-</span> <span class="n">Les</span> <span class="n">colonnes</span> <span class="n">doivent</span> <span class="n">commencer</span> <span class="n">à</span> <span class="n">la</span> <span class="n">premiere</span> <span class="n">case</span> <span class="n">de</span> <span class="n">la</span> <span class="n">première</span> <span class="n">ligne</span> <span class="n">et</span> <span class="n">dans</span> <span class="n">l</span><span class="s1">&#39;ordre :</span>
+
+<span class="n">loc_code</span> <span class="o">|</span> <span class="n">mdate</span> <span class="o">|</span> <span class="n">mtype</span> <span class="o">|</span> <span class="n">mvalue</span> <span class="o">|</span> <span class="n">munit</span> <span class="o">|</span> <span class="n">comment</span>
+
+<span class="o">-</span> <span class="n">La</span> <span class="n">feuille</span> <span class="n">de</span> <span class="n">calcul</span> <span class="n">sur</span> <span class="n">laquelle</span> <span class="n">sont</span> <span class="n">notés</span> <span class="n">les</span> <span class="n">données</span> <span class="n">doit</span> <span class="n">s</span><span class="s1">&#39;appeler Feuille1</span>
+<span class="o">===========================================================================</span>
+<span class="n">Appuyez</span> <span class="n">sur</span> <span class="n">Entrée</span> <span class="n">une</span> <span class="n">fois</span> <span class="n">avoir</span> <span class="n">pris</span> <span class="n">connaissance</span> <span class="n">de</span> <span class="n">la</span> <span class="n">notice</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Cela permet de s’assurer que les données saisies auront le même format que celui attendu par les <code class="docutils literal notranslate"><span class="pre">TABLE</span></code> de la database. Cette
+notice est quelque peu différent selon le type d’enregistrements que vous voulez ajouter.</p>
+<p>Après avoir pris connaissance de la notice appuyez sur la touche <strong>Entrée</strong> et le programme vous indique que votre fichier
+doit se trouver dans le dossier <code class="docutils literal notranslate"><span class="pre">DATA</span></code> reservé à cet effet pour que le reste de la procédure fonctionne. Après vous avoir assurer
+du bon emplacement de votre fichier appuyez une seconde fois sur <strong>Entrée</strong>.</p>
+<p>Le programme va alors vous afficher une liste numérotée des différents fichiers présent dans le dossier <code class="docutils literal notranslate"><span class="pre">DATA</span></code> correspondant au type de données
+que vous avez selectionné. Renseignez le numéro de le liste correspondant au fichier contenant les enregistrements que vous souhaitez ajouter et validé
+avec la touche <strong>Entrée</strong>. Le fichier selectionné va être scanné et le nombre d’enregistrements contenus vous sera affiché pour éviter d’éventuelles
+confusion. Dans une dernière étape cet à vous de valider si vous souhaitez ou non ajouter ces nouvelles données à la database. Répondre par <code class="docutils literal notranslate"><span class="pre">O</span></code>,
+<code class="docutils literal notranslate"><span class="pre">o</span></code>, <code class="docutils literal notranslate"><span class="pre">Y</span></code> ou <code class="docutils literal notranslate"><span class="pre">y</span></code> mettra à jour la base de données tandis que les réponses <code class="docutils literal notranslate"><span class="pre">N</span></code> ou <code class="docutils literal notranslate"><span class="pre">n</span></code> annuleront l’opération en cours. Si les données ont bien été
+ajoutées dans le <code class="docutils literal notranslate"><span class="pre">TABLE</span></code> de <code class="docutils literal notranslate"><span class="pre">SAFEM_DATA</span></code> correspondant le programme vous le spécifiera avant de vous afficher à nouveau le <code class="docutils literal notranslate"><span class="pre">MENU</span> <span class="pre">CHOIX</span> <span class="pre">DES</span> <span class="pre">DONNEES</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>A présent vous pouvez déposer le fichier LibreOffice (.ods) dans le dossier DATA, Appuyer sur Entrée une fois le fichier déposé
+
+Fichiers disponibles:
+0 - donnees_measurements_2025-06-13.ods
+1 - donnees_measurements_2025-06-11.ods
+2 - donnees_measurements_2025-06-12.ods
+
+Choisissez votre fichier en entrant son numéro d&#39;ordre:
+
+-&gt; 1
+
+Lecture du fichier donnees_measurements_2025-06-11.ods
+3 enregistrements trouvés dans le fichier.
+Voulez-vous insérer 3 enregistrements dans la base de données? (O/N):
+
+-&gt; O
+
+Enregistrement terminé
+
+===========================================================================
+MENU CHOIX DES DONNEES
+===========================================================================
+Quelles données voulez-vous ajouter :
+1 - Localisation de puits/sources/rivières ?
+2 - Mesures physico-chimiques/piézométriques ?
+3 - Quitter le menu choix des données et retourner au menu principal
+===========================================================================
+</pre></div>
+</div>
+<p>Il est maintenant possible si vous le souhaitez de <a class="reference internal" href="#document-modifydata#modify"><span class="std std-ref">Visualiser et modifier des enregistrements</span></a> même plus anciens contenus dans la database <code class="docutils literal notranslate"><span class="pre">SAFEM_DATA</span></code>.</p>
+</section>
+</section>
+<span id="document-modifydata"></span><section id="visualiser-et-modifier-des-enregistrements">
+<span id="modify"></span><h2>Visualiser et modifier des enregistrements<a class="headerlink" href="#visualiser-et-modifier-des-enregistrements" title="Lien vers cette rubrique"></a></h2>
+<p>En dernier lieu ce programme vous permet d’accéder aux enregistrements contenus dans la base de données et si vous le souhaitez
+de les modifier. Dans le <code class="docutils literal notranslate"><span class="pre">MENU</span> <span class="pre">PRINCIPAL</span></code> selectionnez l’option <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">-</span> <span class="pre">Visualiser/Modifier</span> <span class="pre">d'anciennes</span> <span class="pre">données</span></code>. Une fois n’est
+pas coutume vous devez ensuite spécifier le type de données auquel vous désirez accéder . Cela permet au programme de savoir dans quel
+<code class="docutils literal notranslate"><span class="pre">TABLE</span></code> de <code class="docutils literal notranslate"><span class="pre">SAFEM_DATA</span></code> chercher.</p>
+<p>Dans le menu <code class="docutils literal notranslate"><span class="pre">SELECTION</span> <span class="pre">DES</span> <span class="pre">DONNEES</span></code> qui s’affiche ensuite vous devez choisir la façon dont vous souhaitez accéder à vos données.
+La base de données <code class="docutils literal notranslate"><span class="pre">SAFEM_DATA</span></code> contenant de nombreux enregistrements une premièr recoupement est nécessaire. Vous avez le choix entre utilisez
+le code de nomenclature (cf. <a class="reference internal" href="#document-skeleton#skeleton"><span class="std std-ref">Détails et structure de la base de données SAFEM_DATA</span></a>) ou bien la date de la prise de mesure ou de l’enregistrement de la localisation du puit.</p>
+<p>Selectionnez le mode de recherche puis renseignez votre code ou votre date. Le programme va alors vous dressez la liste de tout les enregistrement qui
+correspondent à l’indice de recherche que vous avez rentré:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">===========================================================================</span>
+<span class="n">SELECTION</span> <span class="n">DES</span> <span class="n">DONNEES</span>
+<span class="o">===========================================================================</span>
+<span class="n">Comment</span> <span class="n">voulez</span><span class="o">-</span><span class="n">vous</span> <span class="n">accéder</span> <span class="n">à</span> <span class="n">vos</span> <span class="n">données</span> <span class="p">:</span>
+<span class="mi">1</span> <span class="o">-</span> <span class="n">En</span> <span class="n">saisissant</span> <span class="n">le</span> <span class="n">code</span> <span class="n">de</span> <span class="n">localisation</span> <span class="p">(</span><span class="n">nomenclature</span><span class="p">)</span>
+<span class="mi">2</span> <span class="o">-</span> <span class="n">En</span> <span class="n">saisissant</span> <span class="n">la</span> <span class="n">date</span> <span class="n">de</span> <span class="n">la</span> <span class="n">prise</span> <span class="n">de</span> <span class="n">la</span> <span class="n">mesure</span>
+<span class="mi">3</span> <span class="o">-</span> <span class="n">Retour</span> <span class="n">au</span> <span class="n">menu</span> <span class="n">principal</span>
+<span class="o">===========================================================================</span>
+
+<span class="o">-&gt;</span> <span class="mi">2</span>
+
+<span class="n">Saisissez</span> <span class="n">la</span> <span class="n">date</span> <span class="p">(</span><span class="nb">format</span> <span class="n">YYYY</span><span class="o">-</span><span class="n">MM</span><span class="o">-</span><span class="n">DD</span><span class="p">)</span> <span class="p">:</span>
+
+<span class="o">-&gt;</span> <span class="mi">2025</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">12</span>
+
+<span class="n">Enregistrements</span> <span class="n">trouvés</span> <span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+<span class="n">rec</span> <span class="n">loc_code</span>      <span class="n">mdate</span> <span class="n">mtype</span>  <span class="n">mvalue</span>  <span class="n">comment</span>
+<span class="mi">1397</span>     <span class="n">L003</span> <span class="mi">2025</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">12</span>   <span class="n">Orp</span>   <span class="mf">256.0</span>  <span class="n">modifie</span>
+<span class="mi">1398</span>     <span class="n">L003</span> <span class="mi">2025</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">12</span>   <span class="n">Orp</span>   <span class="mf">165.0</span> <span class="n">modifié4</span>
+<span class="mi">1399</span>     <span class="n">L003</span> <span class="mi">2025</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">12</span>   <span class="n">Orp</span>   <span class="mf">255.0</span>     <span class="kc">None</span>
+<span class="mi">1407</span>     <span class="n">IPGP</span> <span class="mi">2025</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">12</span> <span class="n">piezo</span>   <span class="mf">135.0</span>    <span class="n">chaud</span>
+<span class="n">Entrez</span> <span class="n">le</span> <span class="n">numéro</span> <span class="s1">&#39;rec&#39;</span> <span class="n">de</span> <span class="n">l</span><span class="s1">&#39;enregistrement à modifier/visualiser (0 pour annuler) :</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Dans le cas où vous recherchez des enregistrement de localisation avec le code de nomenclature il est tout à fait normal de n’obtenir qu’un seul
+enregistrement correspondant puis cette clef de recherche est unique et propre à chaque puit recenscé.</p>
+</div>
+<p>Il vous est donc possible de visualiser n’importe quelles données de la database pour peu que vous connaissiez la nomenclature ou la date de la prise de données
+de l’enregistrement recherché. Il vous est, dans la suite du programme, aussi possible de modifié un enregistrement spécifique.
+Le programme vous demande alors de renseignez le code d’enregistrement <code class="docutils literal notranslate"><span class="pre">rec</span></code> (dans le cas de données de mesures) ou le code de nomenclature <code class="docutils literal notranslate"><span class="pre">loc_code</span></code>
+(dans le cas de données de localisation) qui correspond à la ligne de l’enregistrement que vous souhaitez modifier. Si vous ne souhaitez pas modifier de données saisissez
+la touche <code class="docutils literal notranslate"><span class="pre">0</span></code> pour revenir au <code class="docutils literal notranslate"><span class="pre">MENU</span> <span class="pre">PRINCIPAL</span></code>.</p>
+<p>Une fois votre réponse validée un fichier LibreOffice
+s’ouvre contenant la ligne que vous pouvez dès à présent modifier. N’oubliez d’enregistrer vos modifications avec <strong>CTRL + S</strong>. Une fois terminé refermez le fichier, retournez
+sur le programme et appuyez sur <strong>Entrée</strong> pour mettre à jour la database.</p>
+<p>Le programme vous annonce la bonne modification de la base de données et vous redirige ensuite sur le <code class="docutils literal notranslate"><span class="pre">MENU</span> <span class="pre">PRINCIPAL</span></code> pour poursuivre votre travail:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Entrez le numéro &#39;rec&#39; de l&#39;enregistrement à modifier/visualiser (0 pour annuler) :
+
+-&gt; 1398
+
+Fichier modify_measurements.ods généré pour modification.
+Appuyez sur Entrée après avoir enregistré vos modifications
+Enregistrement rec=1398 mis à jour avec succès!
+
+===========================================================================
+MENU PRINCIPAL
+===========================================================================
+Que souhaitez-vous faire ?
+1 - Ajouter de nouvelles données
+2 - Ajouter à partir d&#39;un fichier déjà remplit
+3 - Visualiser/Modifier d&#39;anciennes données
+4 - Quitter
+===========================================================================
+?
+</pre></div>
+</div>
+</section>
+<span id="document-library"></span><section id="module-lib_sql">
+<span id="documentation-des-fonctions"></span><h2>Documentation des fonctions<a class="headerlink" href="#module-lib_sql" title="Lien vers cette rubrique"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="lib_sql.add_from_DATA">
+<span class="sig-prename descclassname"><span class="pre">lib_sql.</span></span><span class="sig-name descname"><span class="pre">add_from_DATA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cursor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lib_sql.add_from_DATA" title="Lien vers cette définition"></a></dt>
+<dd><p>Ajoute des enregistrements à la base de données depuis un fichier LibreOffice déjà remplit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Objet de connexion à la base de données MySQL/MariaDB.</p></li>
+<li><p><strong>cursor</strong> – Objet curseur permettant d’exécuter des requêtes SQL.</p></li>
+<li><p><strong>data_type</strong> (<em>str</em>) – “localisation” ou “measurements” en fonction du TABLE ou l’on souhaite
+ajouter les enregistrements</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lib_sql.connect_database">
+<span class="sig-prename descclassname"><span class="pre">lib_sql.</span></span><span class="sig-name descname"><span class="pre">connect_database</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lib_sql.connect_database" title="Lien vers cette définition"></a></dt>
+<dd><p>Etablie la connexion avec la base de données.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>user</strong> (<em>str</em>) – Le nom d’utilisateur utilisé pour s’authentifier auprès du serveur MySQL.</p></li>
+<li><p><strong>passwd</strong> (<em>str</em>) – Le mot de passe permettant d’authentifier l’utilisateur auprès du serveur MySQL.</p></li>
+<li><p><strong>db</strong> (<em>str</em>) – Le nom de la base de données à utiliser lors de la connexion au serveur MySQL.</p></li>
+<li><p><strong>host</strong> (<em>str</em>) – Le nom d’hôte ou l’adresse IP du serveur MySQL. Par défaut : 127.0.0.1 ou localhost</p></li>
+<li><p><strong>défaut.</strong> (<em>Les paramètres sont ici déjà remplis par</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Renvoie<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>connection</em> – Objet de connexion à la base de données MySQL/MariaDB.</p></li>
+<li><p><em>cursor</em> – Objet curseur permettant d’exécuter des requêtes SQL.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lib_sql.insert_data_localisation">
+<span class="sig-prename descclassname"><span class="pre">lib_sql.</span></span><span class="sig-name descname"><span class="pre">insert_data_localisation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cursor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lib_sql.insert_data_localisation" title="Lien vers cette définition"></a></dt>
+<dd><p>Ajoute des enregistrements dans la base de données SAFE-M dans le TABLE
+localisation de manière intéractive.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Objet de connexion à la base de données MySQL/MariaDB.</p></li>
+<li><p><strong>cursor</strong> – Objet curseur permettant d’exécuter des requêtes SQL.</p></li>
+<li><p><strong>df</strong> (<em>Dataframe pandas</em>) – Dataframe regroupant les données du fichier LibreOffice « template_localisation.ods »
+remplit par l’utilisateur pour ajouter les données de localisation de puits/sources/rivières.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lib_sql.insert_data_measurements">
+<span class="sig-prename descclassname"><span class="pre">lib_sql.</span></span><span class="sig-name descname"><span class="pre">insert_data_measurements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cursor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lib_sql.insert_data_measurements" title="Lien vers cette définition"></a></dt>
+<dd><p>Ajoute des enregistrements dans la base de données SAFE-M dans le TABLE
+measurements de manière intéractive.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Objet de connexion à la base de données MySQL/MariaDB.</p></li>
+<li><p><strong>cursor</strong> – Objet curseur permettant d’exécuter des requêtes SQL.</p></li>
+<li><p><strong>df</strong> (<em>Dataframe pandas</em>) – Dataframe regroupant les données du fichier LibreOffice « template_measurements.ods »
+remplit par l’utilisateur pour ajouter les données de mesures physico-chimique/piezométriques.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lib_sql.modify_database_records">
+<span class="sig-prename descclassname"><span class="pre">lib_sql.</span></span><span class="sig-name descname"><span class="pre">modify_database_records</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cursor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">by_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lib_sql.modify_database_records" title="Lien vers cette définition"></a></dt>
+<dd><p>Modifie des enregistrements dans la base de données de manière interactive.</p>
+<section id="parameters">
+<h3>Parameters:<a class="headerlink" href="#parameters" title="Lien vers cette rubrique"></a></h3>
+<dl class="simple">
+<dt>connection :</dt><dd><p>Objet de connexion à la base de données MySQL/MariaDB.</p>
+</dd>
+<dt>cursor :</dt><dd><p>Objet curseur permettant d’exécuter des requêtes SQL.</p>
+</dd>
+<dt>data_type<span class="classifier">str</span></dt><dd><p>“localisation” ou “measurements” en fonction du TABLE à modifier</p>
+</dd>
+<dt>by_code<span class="classifier">booléen</span></dt><dd><p>True pour accèder aux données par le loc_code, False pour accèder aux données par la date de la prise de mesure</p>
+</dd>
+<dt>search_value<span class="classifier">str</span></dt><dd><p>Numéro du loc_code ou la date qui permet de cibler les données à modifier</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, tgauthierbrouard.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

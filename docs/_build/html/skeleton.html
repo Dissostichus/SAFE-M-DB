@@ -1,0 +1,216 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Détails et structure de la base de données SAFEM_DATA &mdash; Documentation Base de données SAFE-M 1.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=7a28dfa3"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=e6b791cb"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Installation" href="install.html" />
+    <link rel="prev" title="Base de données SAFE-M documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Base de données SAFE-M
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Détails et structure de la base de données SAFEM_DATA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#measurements">measurements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#saisie-sur-document-libreoffice">Saisie sur document LibreOffice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#localisation">localisation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Saisie sur document LibreOffice</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="adddata.html">Ajouter des enregistrements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modifydata.html">Visualiser et modifier des enregistrements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library.html">Documentation des fonctions</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Base de données SAFE-M</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Détails et structure de la base de données SAFEM_DATA</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/skeleton.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="details-et-structure-de-la-base-de-donnees-safem-data">
+<span id="skeleton"></span><h1>Détails et structure de la base de données SAFEM_DATA<a class="headerlink" href="#details-et-structure-de-la-base-de-donnees-safem-data" title="Lien vers cette rubrique"></a></h1>
+<p>La base de données sur l’eau à Madagascar <code class="docutils literal notranslate"><span class="pre">SAFEM_DATA</span></code> contient 5 <code class="docutils literal notranslate"><span class="pre">TABLES</span></code> de données:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MariaDB</span> <span class="p">[</span><span class="n">SAFEM_DATA</span><span class="p">]</span><span class="o">&gt;</span> <span class="n">show</span> <span class="n">tables</span><span class="p">;</span>
+
+<span class="o">+----------------------+</span>
+<span class="o">|</span> <span class="n">Tables_in_SAFEM_DATA</span> <span class="o">|</span>
+<span class="o">+----------------------+</span>
+<span class="o">|</span> <span class="n">Members</span>              <span class="o">|</span>
+<span class="o">|</span> <span class="n">courses</span>              <span class="o">|</span>
+<span class="o">|</span> <span class="n">localisation</span>         <span class="o">|</span>
+<span class="o">|</span> <span class="n">measurements</span>         <span class="o">|</span>
+<span class="o">|</span> <span class="n">science</span>              <span class="o">|</span>
+<span class="o">+----------------------+</span>
+</pre></div>
+</div>
+<p>Le <strong>TABLE</strong> <code class="docutils literal notranslate"><span class="pre">Members</span></code> regroupe des informations sur les collaborateurs de SAFE-M.</p>
+<p>Le <strong>TABLE</strong> <code class="docutils literal notranslate"><span class="pre">courses</span></code> contient plusieurs cours d’hydrologie ou de programmation de niveau Licence 3 et Master.</p>
+<p>Le <strong>TABLE</strong> <code class="docutils literal notranslate"><span class="pre">science</span></code> possède plusieurs références bibliographiques.</p>
+<p>Les deux derniers <strong>TABLES</strong> vont être décris plus en détails car le programme documenté ici permet d’intéragir facilement aver la base de données
+de manière interactive via ces deux <strong>TABLES</strong>.</p>
+<section id="measurements">
+<h2>measurements<a class="headerlink" href="#measurements" title="Lien vers cette rubrique"></a></h2>
+<p>ce <strong>TABLE</strong> possède 7 colonnes de données</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MariaDB</span> <span class="p">[</span><span class="n">SAFEM_DATA</span><span class="p">]</span><span class="o">&gt;</span> <span class="n">select</span> <span class="o">*</span> <span class="kn">from</span><span class="w"> </span><span class="nn">measurements</span><span class="p">;</span>
+
+<span class="o">+------+----------+---------------------+------------------------+---------+-----------+-------------------------------------+</span>
+<span class="o">|</span> <span class="n">rec</span>  <span class="o">|</span> <span class="n">loc_code</span> <span class="o">|</span> <span class="n">mdate</span>               <span class="o">|</span> <span class="n">mtype</span>                  <span class="o">|</span> <span class="n">mvalue</span>  <span class="o">|</span> <span class="n">munit</span>     <span class="o">|</span> <span class="n">comment</span>                             <span class="o">|</span>
+<span class="o">+------+----------+---------------------+------------------------+---------+-----------+-------------------------------------+</span>
+<span class="o">|</span>  <span class="mi">157</span> <span class="o">|</span> <span class="n">A001</span>     <span class="o">|</span> <span class="mi">2022</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">14</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="o">|</span> <span class="n">Profondeur</span> <span class="n">puits</span>       <span class="o">|</span>      <span class="mi">15</span> <span class="o">|</span> <span class="n">m</span>         <span class="o">|</span> <span class="n">date</span> <span class="n">approx</span>                         <span class="o">|</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">rec</span></code>, doit être un nombre entier, est un numéro d’enregistrement automatiquement attribué par la base de donnée lorsque un nouvel enregistrement est fournit.</p>
+<p><code class="docutils literal notranslate"><span class="pre">loc_code</span></code>, doit être une chaine de caractères, est un code qui fait office de nomenclature, ce code consensuel, unique et propre à chaque puit, source ou rivière est attribué par les utilisateurs
+lors de l’enregistrement d’une nouvelle localisation. Cela permet de cataloguer, d’identifier clairement et de retrouver de manière simple un point d’enregistrement.
+Chaque mesure physico-chimique d’échantillon d’eau (par exemple) ou mesure piezométrique est donc associé au puit d’où provient l’échantillon par ce code.</p>
+<p><code class="docutils literal notranslate"><span class="pre">mdate</span></code>, au format <strong>YYYY-MM-DD 00:00:00</strong>, va contenir la date à laquelle à été prise la mesure, les six derniers chiffres correspondent aux heures, minutes et secondes.</p>
+<p><code class="docutils literal notranslate"><span class="pre">mtype</span></code>, doit être une chaine de caractères, va correspondre au type de mesure effectuée, le plus souvent cela peut-être <strong>pH</strong>, <strong>Orp</strong>, <strong>Od</strong>, <strong>Conductivité</strong> ou <strong>mesure piézométrique</strong>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">mvalue</span></code>, doit être un nombre entier ou à virgule, contient la valeur mesurée.</p>
+<p><code class="docutils literal notranslate"><span class="pre">munit</span></code>, doit être une chaine de caractères, contient les unités de la mesures.</p>
+<p><code class="docutils literal notranslate"><span class="pre">comment</span></code>, doit être une chaine de caractère, permet de rajouter quelques commentaires sur la prise de mesures et d’eventuelles informations, par exemple la hauteur de
+la margelle du puit pour une mesure piezométrique.</p>
+<section id="saisie-sur-document-libreoffice">
+<h3>Saisie sur document LibreOffice<a class="headerlink" href="#saisie-sur-document-libreoffice" title="Lien vers cette rubrique"></a></h3>
+<p>Lors de la saisie de données de mesure sur les documents <strong>LibreOffice</strong> qui vont permettre d’intéragir avec la base de données assurez-vous que les champs que vous remplissez
+respecte bien le format attendu et décrit plus haut.</p>
+<p>Tout les champs peuvent ne pas être remplis en cas de manque de données et d’informations néanmoins certains sont obligatoires
+pour assurer la validité de l’enregistrement et sont ajout à la base de données. Dans le cas du <strong>TABLES</strong> <code class="docutils literal notranslate"><span class="pre">measurements</span></code>  seul le champs <code class="docutils literal notranslate"><span class="pre">loc_code</span></code> est obligatoire.</p>
+<p>Lors de la saisie de données sur <strong>LibreOffice</strong> vous remarquerez que le champs <code class="docutils literal notranslate"><span class="pre">rec</span></code> n’apparait pas, cette information va être automatiquement ajoutée lors de l’ajout à la database, l’utiliateur n’a pas à s’en
+préoccuper.</p>
+</section>
+</section>
+<section id="localisation">
+<h2>localisation<a class="headerlink" href="#localisation" title="Lien vers cette rubrique"></a></h2>
+<p>Ce <strong>TABLE</strong> possède 16 colonnes de données:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MariaDB</span> <span class="p">[</span><span class="n">SAFEM_DATA</span><span class="p">]</span><span class="o">&gt;</span> <span class="n">select</span> <span class="o">*</span> <span class="kn">from</span><span class="w"> </span><span class="nn">localisation</span><span class="p">;</span>
+
+<span class="o">+----------+------------------------------------+-------------------------------------+----------+-----------+----------+--------------------------------+-----------------------+----------------------+------------------------------------+----------------------+---------------------+------------------+-----------------+------------------------------------+----------+</span>
+<span class="o">|</span> <span class="n">rec_code</span> <span class="o">|</span> <span class="n">loc_type</span>                           <span class="o">|</span> <span class="n">name</span>                                <span class="o">|</span> <span class="n">latitude</span> <span class="o">|</span> <span class="n">longitude</span> <span class="o">|</span> <span class="n">altitude</span> <span class="o">|</span> <span class="n">description</span>                    <span class="o">|</span> <span class="n">contact</span>               <span class="o">|</span> <span class="n">coord_sys</span>            <span class="o">|</span> <span class="n">gps_used</span>                           <span class="o">|</span> <span class="n">exploitation</span>         <span class="o">|</span> <span class="n">loc_date</span>            <span class="o">|</span> <span class="n">referentiel_z</span>    <span class="o">|</span> <span class="n">photos_list</span>     <span class="o">|</span> <span class="n">quartier</span>                           <span class="o">|</span> <span class="n">loc_code</span> <span class="o">|</span>
+<span class="o">+----------+------------------------------------+-------------------------------------+----------+-----------+----------+--------------------------------+-----------------------+----------------------+------------------------------------+----------------------+---------------------+------------------+-----------------+------------------------------------+----------+</span>
+<span class="o">|</span>        <span class="mi">1</span> <span class="o">|</span> <span class="n">puits</span>                              <span class="o">|</span> <span class="n">NULL</span>                                <span class="o">|</span> <span class="o">-</span><span class="mf">18.9103</span> <span class="o">|</span>   <span class="mf">47.5559</span> <span class="o">|</span>     <span class="mi">1289</span> <span class="o">|</span> <span class="n">sec</span>                            <span class="o">|</span>                       <span class="o">|</span> <span class="n">WGS84</span>                <span class="o">|</span> <span class="n">NULL</span>                               <span class="o">|</span> <span class="n">NULL</span>                 <span class="o">|</span> <span class="n">NULL</span>                <span class="o">|</span> <span class="n">NULL</span>             <span class="o">|</span> <span class="n">NULL</span>            <span class="o">|</span> <span class="n">NULL</span>                               <span class="o">|</span> <span class="n">A001</span>     <span class="o">|</span>
+<span class="o">|</span>        <span class="mi">2</span> <span class="o">|</span> <span class="n">puits</span> <span class="n">privé</span> <span class="n">traditionnel</span>           <span class="o">|</span> <span class="n">NULL</span>                                <span class="o">|</span> <span class="o">-</span><span class="mf">18.9104</span> <span class="o">|</span>   <span class="mf">47.5573</span> <span class="o">|</span>     <span class="mi">1282</span> <span class="o">|</span>                                <span class="o">|</span>                       <span class="o">|</span> <span class="n">WGS84</span>                <span class="o">|</span> <span class="n">NULL</span>                               <span class="o">|</span> <span class="n">NULL</span>                 <span class="o">|</span> <span class="n">NULL</span>                <span class="o">|</span> <span class="n">NULL</span>             <span class="o">|</span> <span class="n">NULL</span>            <span class="o">|</span> <span class="n">NULL</span>                               <span class="o">|</span> <span class="n">A002</span>     <span class="o">|</span>
+<span class="o">|</span>        <span class="mi">3</span> <span class="o">|</span> <span class="n">forage</span> <span class="n">du</span> <span class="n">campus</span>                   <span class="o">|</span> <span class="n">NULL</span>                                <span class="o">|</span> <span class="o">-</span><span class="mf">18.9115</span> <span class="o">|</span>   <span class="mf">47.5581</span> <span class="o">|</span>     <span class="mi">1263</span> <span class="o">|</span>                                <span class="o">|</span>                       <span class="o">|</span> <span class="n">WGS84</span>                <span class="o">|</span> <span class="n">NULL</span>                               <span class="o">|</span> <span class="n">NULL</span>                 <span class="o">|</span> <span class="n">NULL</span>                <span class="o">|</span> <span class="n">NULL</span>             <span class="o">|</span> <span class="n">NULL</span>            <span class="o">|</span> <span class="n">NULL</span>                               <span class="o">|</span> <span class="n">A003</span>     <span class="o">|</span>
+<span class="o">|</span>        <span class="mi">4</span> <span class="o">|</span> <span class="n">forage</span> <span class="n">privé</span>                       <span class="o">|</span> <span class="n">NULL</span>                                <span class="o">|</span> <span class="o">-</span><span class="mf">18.9114</span> <span class="o">|</span>   <span class="mf">47.5581</span> <span class="o">|</span>     <span class="mi">1271</span> <span class="o">|</span>                                <span class="o">|</span>                       <span class="o">|</span> <span class="n">WGS84</span>                <span class="o">|</span> <span class="n">NULL</span>                               <span class="o">|</span> <span class="n">NULL</span>                 <span class="o">|</span> <span class="n">NULL</span>                <span class="o">|</span> <span class="n">NULL</span>             <span class="o">|</span> <span class="n">NULL</span>            <span class="o">|</span> <span class="n">NULL</span>                               <span class="o">|</span> <span class="n">A004</span>     <span class="o">|</span>
+<span class="o">|</span>        <span class="mi">5</span> <span class="o">|</span> <span class="n">forage</span> <span class="n">piblic</span>                      <span class="o">|</span> <span class="n">NULL</span>                                <span class="o">|</span> <span class="o">-</span><span class="mf">18.9097</span> <span class="o">|</span>   <span class="mf">47.5575</span> <span class="o">|</span>     <span class="mi">1271</span> <span class="o">|</span> <span class="n">fermé</span> <span class="n">et</span> <span class="n">non</span> <span class="n">fonctionnel</span>       <span class="o">|</span>                       <span class="o">|</span> <span class="n">WGS84</span>                <span class="o">|</span> <span class="n">NULL</span>                               <span class="o">|</span> <span class="n">NULL</span>                 <span class="o">|</span> <span class="n">NULL</span>                <span class="o">|</span> <span class="n">NULL</span>             <span class="o">|</span> <span class="n">NULL</span>            <span class="o">|</span> <span class="n">NULL</span>                               <span class="o">|</span> <span class="n">A005</span>     <span class="o">|</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">rec_code</span></code>, doit être un nombre entier, est un numéro d’enregistrement automatiquement attribué par la base de donnée lorsque un nouvel enregistrement est fournit.</p>
+<p><code class="docutils literal notranslate"><span class="pre">loc_type</span></code>, doit être une chaine de caractères, pour indiquer qu’est ce qui a été localisé lors de l’enregistrement, une puit, une source, un forage.</p>
+<p><code class="docutils literal notranslate"><span class="pre">name</span></code>, doit être une chaine de caractères, permet d’indiquer le nom de le/la propriétaire du puit par exemple.</p>
+<p><code class="docutils literal notranslate"><span class="pre">latitude</span></code>, <code class="docutils literal notranslate"><span class="pre">longitude</span></code>, <code class="docutils literal notranslate"><span class="pre">altitude</span></code>, doivent être des nombres à virgule et sont obtenues par mesure GPS RTK.</p>
+<p><code class="docutils literal notranslate"><span class="pre">description</span></code>, doit être une chaine de caractère, permet de completer avec des informations supplémentaires.</p>
+<p><code class="docutils literal notranslate"><span class="pre">contact</span></code>, doit être une chaine de caractère, permet de renseigner si le/la propriétaire possède un moyen de contact, email, téléphone ou autre.</p>
+<p><code class="docutils literal notranslate"><span class="pre">coord_sys</span></code>, doit être une chaine de caractère, par défaut si rien n’est renseigné ce sera WGS84,  il s’agit d’un système de coordonnées géographiques mondial.</p>
+<p><code class="docutils literal notranslate"><span class="pre">gps_used</span></code>, doit être une chaine de caractère, permet de renseigner le modèle du GPS utilisé.</p>
+<p><code class="docutils literal notranslate"><span class="pre">exploitation</span></code>, doit être une chaine de caractère, permet de renseigner la type d’utilisation du puit si c’est pour un usage domestique par exemple, ou s’il n’est
+plus exploité et depuis combien de temps.</p>
+<p><code class="docutils literal notranslate"><span class="pre">loc_date</span></code>, au format <strong>YYYY-MM-DD 00:00:00</strong>, contient la date à laquelle à été prise la mesure de localisation.</p>
+<p><code class="docutils literal notranslate"><span class="pre">referentiel_z</span></code>, doit être une chaine de caractère, permet d’indiquer d’où la mesure d’altitude est prise, s’il s’agit de la tête du puit, de la base de la margelle, etc.</p>
+<p><code class="docutils literal notranslate"><span class="pre">photos_list</span></code>, doit être du texte, par exemple : IMG_20221028_091535, permet d’ajouter la référence de photo du puits qui vont être enregistrés dans un dossier extérieur mais
+qu’il sera facile de retrouver grâce à cette référence.</p>
+<p><code class="docutils literal notranslate"><span class="pre">quartier</span></code>, doit être une chaine de caractère, permet de renseigner le quartier dans lequel se situe la localisation.</p>
+<p><code class="docutils literal notranslate"><span class="pre">loc_code</span></code>, doit être une chaine de caractère, il s’agit du code qui fait office de nomenclature, ce code consensuel, unique et propre à chaque puit, source ou rivière est attribué par les utilisateurs
+lors de l’enregistrement d’une nouvelle localisation. Cela permet de cataloguer, d’identifier clairement et de retrouver de manière simple un point d’enregistrement.</p>
+<section id="id1">
+<h3>Saisie sur document LibreOffice<a class="headerlink" href="#id1" title="Lien vers cette rubrique"></a></h3>
+<p>Lors de la saisie de données de localisation sur les documents <strong>LibreOffice</strong> qui vont permettre d’intéragir avec la base de données assurez-vous que les champs que vous remplissez
+respecte bien le format attendu et décrit plus haut.</p>
+<p>Tout les champs peuvent ne pas être remplis en cas de manque de données et d’informations néanmoins certains sont obligatoires
+pour assurer la validité de l’enregistrement et l’ajouter à la base de données. Les champs obligatoires dans le cas du <strong>TABLES</strong> <code class="docutils literal notranslate"><span class="pre">localisation</span></code> sont : <code class="docutils literal notranslate"><span class="pre">loc_type</span></code>, <code class="docutils literal notranslate"><span class="pre">latitude</span></code>, <code class="docutils literal notranslate"><span class="pre">longitude</span></code> et <code class="docutils literal notranslate"><span class="pre">loc_code</span></code>.</p>
+<p>Lors de la saisie de données sur LibreOffice vous remarquerez que le champs <code class="docutils literal notranslate"><span class="pre">rec_code</span></code> n’apparait pas, cette information va être automatiquement ajoutée lors de l’ajout à la database, l’utiliateur n’a pas à s’en
+préoccuper.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="index.html" class="btn btn-neutral float-left" title="Base de données SAFE-M documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="install.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, tgauthierbrouard.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
