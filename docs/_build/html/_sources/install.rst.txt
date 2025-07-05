@@ -9,7 +9,7 @@ contient l'ensemble des codes et dossiers nécessaires à la bonne gestion de la
 
 Vous pouvez cloner le répertoire en saisissant directement dans le terminal la commande::
 
-    # git clone ...
+    # git clone https://github.com/SAFE-M/SAFE-M-DB.git
 
 .. note:: 
 

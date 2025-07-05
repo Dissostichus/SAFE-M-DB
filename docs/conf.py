@@ -7,8 +7,8 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'SAFE-M-DB'
-copyright = '2025, tgauthierbrouard'
-author = 'tgauthierbrouard'
+copyright = '2025, SAFE-M'
+author = 'SAFE-M'
 release = '1.0'
 
 import sys
