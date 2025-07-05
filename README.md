@@ -21,13 +21,13 @@ Si ce n'est pas le cas :
 > sudo apt install python3-mysql python3-datetime python3-numpy python3-pandas python3-subprocess python3-os python3-pyexcel_ods python3-collections python3-glob
 
 MariaDB doit être installé et configuré sur votre machine afin de charger la base de données SAFEM_DATA depuis un répertoire distant : 
-[text](https://mariadb.org/download/?t=mariadb&p=mariadb&r=11.8.2&os=Linux&cpu=x86_64&pkg=tar_gz&i=systemd&mirror=liquidtelecom)
+https://mariadb.org/download/?t=mariadb&p=mariadb&r=11.8.2&os=Linux&cpu=x86_64&pkg=tar_gz&i=systemd&mirror=liquidtelecom
 
 ## SAFEM_DATA <a class="anchor" id="MariaDB"></a>
 
 * Cette base de données résulte d'un travail collectif effectué par des étudiant.e.s et professeur.e.s de ...  et de l'Institut de physique du globe de Paris.
 
-La dernière version de cette base de données est disponible sur le github de l'organisation SAFE-M : [text](https://github.com/SAFE-M)
+La dernière version de cette base de données est disponible sur le github de l'organisation SAFE-M : https://github.com/SAFE-M
 Pour charger la base de données une fois celle-ci installée sur votre machine saisissez dans votre terminal : 
 > mysql -u votre_nom_utilisateur -p votre_mot_de_passe UTF-8safem_data.sql
 
